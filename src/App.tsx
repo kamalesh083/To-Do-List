@@ -1,32 +1,23 @@
-import { useState } from "react";
 import "./App.css";
-import TodoItems from "./components/TodoItems";
-import { data } from "./data/todos";
+
 import { ListTodo } from "lucide-react";
 import AddTodoForm from "./components/AddTodoForm";
+import { TodoList } from "./components/TodoList";
+import TodoSummary from "./components/TodoSummary";
+
+import useTodo from "./hooks/useTodo";
 
 function App() {
-  const [todos, setTodos] = useState(data);
-
-  function handleCompletedChange(id: number, completed: boolean) {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) => (todo.id === id ? { ...todo, completed } : todo))
-    );
-  }
-
-  function addTodo(title: string) {
-    setTodos((prevTodos) => [
-      {
-        id: prevTodos.length + 1,
-        title,
-        completed: false,
-      },
-      ...prevTodos,
-    ]);
-  }
+  const {
+    todos,
+    addTodo,
+    handleCompletedChange,
+    deleteTodo,
+    deleteAllCompleted,
+  } = useTodo();
 
   return (
-    <main className="flex flex-col lg:text-xl items-center justify-center h-screen">
+    <main className="flex flex-col lg:text-lg items-center justify-center h-screen overflow-y-auto">
       {/* Header Section */}
       <div className="flex items-center gap-2 mt-10">
         <h1 className="font-bold text-4xl from-gray-800 to-gray-900 bg-gradient-to-r bg-clip-text">
@@ -43,11 +34,16 @@ function App() {
       {/* Todos Section */}
       <h2 className="mt-5 text-2xl mb-5">Todos</h2>
       {/* AddTodoForm Component */}
-      <AddTodoForm onSubmit={addTodo} />
-      <div className="mt-5 flex flex-col max-w-lg space-y-2 mx-auto bg-slate-400 rounded-md p-5">
-        {todos.map((todo) => (
-          <TodoItems todo={todo} onCompletedChange={handleCompletedChange} />
-        ))}
+      <div className="flex flex-col items-center bg-slate-300 rounded-md p-5 shadow-md">
+        <AddTodoForm onSubmit={addTodo} />
+        {/* TodoItems Component */}
+        <TodoList
+          todos={todos}
+          onCompletedChange={handleCompletedChange}
+          onRemove={deleteTodo}
+        />
+
+        <TodoSummary todos={todos} deleteAllCompleted={deleteAllCompleted} />
       </div>
     </main>
   );

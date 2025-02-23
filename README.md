@@ -1,50 +1,91 @@
-# React + TypeScript + Vite
+# 📝 Todo List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-18.2.0-blue?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-5.0-purple?style=flat-square&logo=vite)
 
-Currently, two official plugins are available:
+A simple yet powerful **Todo List** application built using **React**, **TypeScript**, and **Vite**. It allows users to add, mark, and delete todos while persisting data in **local storage**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+✅ Add new todos with ease  
+✅ Mark todos as completed  
+✅ Delete individual todos  
+✅ Delete all completed todos at once  
+✅ Data persistence using local storage  
+✅ Responsive and clean UI with TailwindCSS  
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📂 Project Structure
+```
+📦 todo-list-app
+ ┣ 📂 src
+ ┃ ┣ 📂 components
+ ┃ ┃ ┣ 📜 AddTodoForm.tsx
+ ┃ ┃ ┣ 📜 TodoList.tsx
+ ┃ ┃ ┣ 📜 TodoSummary.tsx
+ ┃ ┣ 📂 data
+ ┃ ┃ ┗ 📜 todos.ts
+ ┃ ┣ 📂 types
+ ┃ ┃ ┗ 📜 todo.ts
+ ┃ ┣ 📜 App.tsx
+ ┃ ┣ 📜 main.tsx
+ ┣ 📜 index.html
+ ┣ 📜 package.json
+ ┣ 📜 tsconfig.json
+ ┣ 📜 README.md
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 📦 Installation & Setup
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+1️⃣ **Clone the repository**
+```sh
+git clone https://github.com/your-username/todo-list-app.git
+cd todo-list-app
 ```
+
+2️⃣ **Install dependencies**
+```sh
+npm install
+```
+
+3️⃣ **Run the development server**
+```sh
+npm run dev
+```
+
+The app will be available at **http://localhost:5173** 🚀
+
+---
+
+## 🛠️ Technologies Used
+
+- **React 18.2** - UI Library
+- **TypeScript** - Static Type Checking
+- **Vite** - Lightning-fast build tool
+- **TailwindCSS** - Styling
+- **Lucide React** - Icons
+- **LocalStorage API** - Data persistence
+
+---
+
+
+## 🤝 Contributing
+
+Contributions are welcome! If you find any issues or want to add a feature, feel free to open an issue or submit a pull request.
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+💙 **Happy Coding!** 🚀
+
